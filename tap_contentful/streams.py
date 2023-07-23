@@ -13,7 +13,7 @@ class EntriesStream(ContentfulStream):
 
     name = "entries"
     path = "/entries"
-    primary_keys = ["sys__id"]
+    primary_keys = ["id"]
     replication_key = "updated_at"
     replication_key_param = "sys.updatedAt"
     schema = th.PropertiesList(
@@ -54,5 +54,6 @@ class EntriesStream(ContentfulStream):
     ).to_dict()
 
     def post_process(self, row: dict, context: dict | None) -> dict | None:
+        row["id"] = row["sys"]["id"]
         row["updated_at"] = row["sys"]["updatedAt"]
         return row
