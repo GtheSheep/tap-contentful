@@ -17,6 +17,7 @@ class EntriesStream(ContentfulStream):
     replication_key = "updated_at"
     replication_key_param = "sys.updatedAt"
     schema = th.PropertiesList(
+        th.Property("id", th.StringType),
         th.Property("metadata", th.ObjectType(
             th.Property("tags", th.ArrayType(th.StringType))
         )),
