@@ -69,6 +69,7 @@ class ContentTypesStream(ContentfulStream):
     replication_key_param = "sys.updatedAt"
     schema = th.PropertiesList(
         th.Property("id", th.StringType),
+        th.Property("updated_at", th.DateTimeType),
         th.Property("displayField", th.StringType),
         th.Property("name", th.StringType),
         th.Property("description", th.StringType),
