@@ -37,6 +37,7 @@ class TapContentful(Tap):
         """
         return [
             streams.EntriesStream(self),
+            streams.ContentTypesStream(self)
         ]
 
 
